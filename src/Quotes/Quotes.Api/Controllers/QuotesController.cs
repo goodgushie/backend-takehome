@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Quotes.Domain;
 
 namespace Quotes.Api.Controllers
@@ -12,11 +7,24 @@ namespace Quotes.Api.Controllers
     [ApiController]
     public class QuotesController : ControllerBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// POST /Quotes
+        /// {
+        ///     "revenue": decimal,
+        ///     "state": string,
+        ///     "business": string
+        /// }
+        /// </remarks>
+        /// <param name="quoteRequest">Parameters to calculate quote with</param>
+        /// <returns>Quote for the given parameters</returns>
         [HttpPost]
-        public Quote EstimateQuote()
+        public Quote EstimateQuote([FromBody] QuoteRequest quoteRequest)
         {
-            // TODO: Accept json object
-            return new Quote((decimal).943, (decimal).5, 6000, 4);
+            return quoteRequest.CreateQuote();
         }
     }
 }
