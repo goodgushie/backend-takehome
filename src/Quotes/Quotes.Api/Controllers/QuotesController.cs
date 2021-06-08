@@ -8,10 +8,10 @@ namespace Quotes.Api.Controllers
     public class QuotesController : ControllerBase
     {
         /// <summary>
-        /// 
+        /// Estimates a quote
         /// </summary>
         /// <remarks>
-        /// Sample request:
+        /// Example:
         /// POST /Quotes
         /// {
         ///     "revenue": decimal,

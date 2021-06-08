@@ -17,7 +17,8 @@ namespace Quotes.Domain
 
         public Quote CreateQuote()
         {
-            return new Quote(BasePremium, (decimal).943, (decimal).5);
+            return new Quote(StateFactor.FromAbbreviation(State).Factor,
+                BusinessFactor.FromName(Business).Factor, BasePremium); ;
         }
     }
 }
